@@ -35,7 +35,7 @@ npm run dev
 
 Aplikace poběží na [http://localhost:5173](http://localhost:5173)
 
-### 4. (Volitelné) Spuštění testů
+### 4. Spuštění testů
 
 Testy zatím nejsou implementovány.
 
