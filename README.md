@@ -41,6 +41,12 @@ Testy zatím nejsou implementovány.
 
 ---
 
+## 🚀 Nasazeno na Netlify
+
+https://product-finder-mfg.netlify.app/
+
+---
+
 ## 📁 Struktura projektu
 
 ```
