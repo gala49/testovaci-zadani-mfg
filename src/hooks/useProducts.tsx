@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
 import { fetchProducts } from '../api/fetchProducts';
 
+export interface Product {
+    image: string;
+    id: number;
+    name: string;
+    price: number;
+}
+
 export const useProducts = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         const loadProducts = async () => {
@@ -12,7 +19,7 @@ export const useProducts = () => {
                 const data = await fetchProducts();
                 setProducts(data);
             } catch (err) {
-                setError(err);
+                setError(err as Error);
             } finally {
                 setLoading(false);
             }
@@ -22,4 +29,4 @@ export const useProducts = () => {
     }, []);
 
     return { products, loading, error };
-}
+};

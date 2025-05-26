@@ -3,7 +3,7 @@ import { useProducts } from "../hooks/useProducts";
 import ProductsContainer from '../containers/ProductsContainer';
 import SearchbarContainer from '../containers/SearchbarContainer';
 
-const Homepage = () => {
+const Homepage = (): JSX.Element => {
     const { products, loading, error } = useProducts();
     const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('relevance');
@@ -13,18 +13,18 @@ const Homepage = () => {
     const [userMaxPrice, setUserMaxPrice] = useState(0);
 
     // Handle search input change
-    const handleSearch = (event) => {
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
     };
 
     // Handle sorting options
-    const handleSort = (sortOption) => {
+    const handleSort = (sortOption: string) => {
         setSortBy(sortOption);
     }
 
     // Handle min price range changes
-    const handleMinPriceChange = (event) => {
-        const value = parseInt(event, 10);
+    const handleMinPriceChange = (event: number) => {
+        const value = event;
         
         if(isNaN(value)) {
             setMinPrice(0);
@@ -34,8 +34,8 @@ const Homepage = () => {
     }
     
     // Handle max price range changes
-    const handleMaxPriceChange = (event) => {
-        const value = parseInt(event, 10);
+    const handleMaxPriceChange = (event: number) => {
+        const value = event;
         
         if(isNaN(value)) {
             setMaxPrice(0);
@@ -45,7 +45,7 @@ const Homepage = () => {
     }
     
     // Handle user input for min price
-    const handleUserMinPriceChange = (event) => {
+    const handleUserMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(event.target.value, 10);
 
         if (isNaN(value)) {
@@ -56,7 +56,7 @@ const Homepage = () => {
     }
 
     // Handle user input for max price
-    const handleUserMaxPriceChange = (event) => {
+    const handleUserMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(event.target.value, 10);
 
         if (isNaN(value)) {
